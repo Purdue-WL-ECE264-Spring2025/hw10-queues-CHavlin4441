@@ -5,12 +5,12 @@
 void enqueue(struct queue *q, struct game_state state) 
 {
   uint64_t encoded = serialize(state);
-  insert_at_tail(&q -> data, encoded);
+  insert_at_tail(&q->data, encoded);
 }
 
 struct game_state dequeue(struct queue *q) 
 { 
-  uint64_t encoded = remove_from_head(&q -> data);
+  uint64_t encoded = remove_from_head(&q->data);
   return(deserialize(encoded)); 
 }
 
