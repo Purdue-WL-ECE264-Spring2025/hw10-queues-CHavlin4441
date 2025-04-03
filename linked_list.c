@@ -84,7 +84,7 @@ size_t remove_from_tail(struct linked_list *list)
 
   while(walker->next->next)
   {
-    walker = walker->next;
+    walker = walker->next; 
   }
 
   size_t value = walker->next->value;
