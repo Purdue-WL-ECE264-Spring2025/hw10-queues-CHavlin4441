@@ -1,6 +1,6 @@
 #include "queue.h"
 #include "tile_game.h"
-#define MAX_SEEN 1000003
+
 
 void enqueue(struct queue *q, struct game_state state) 
 {
@@ -16,8 +16,4 @@ struct game_state dequeue(struct queue *q)
 
 int number_of_moves(struct game_state start) 
 { 
-  seen = calloc(MAX_SEEN, sizeof(bool));
-  free(seen);
-  free_list(q.data);
-  return(-1); 
 }
