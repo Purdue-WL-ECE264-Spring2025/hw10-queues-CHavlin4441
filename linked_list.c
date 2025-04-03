@@ -1,18 +1,109 @@
 #include "linked_list.h"
-
 #include <stdlib.h>
 
-struct list_node *new_node(size_t value) { return NULL; }
+struct list_node *new_node(size_t value) 
+{  
+  struct list_node *fresh = malloc(sizeof(struct list_node));
+  if(!fresh)
+  {
+  return(NULL);
+  }
 
-void insert_at_head(struct linked_list *list, size_t value) {}
+  freash -> value = value;
+  fresh -> next = NULL;
 
-void insert_at_tail(struct linked_list *list, size_t value) {}
+  return(fresh);
+}
 
-size_t remove_from_head(struct linked_list *list) { return 0; }
+void insert_at_head(struct linked_list *list, size_t value)  
+{
+  struct list_node *fresh = new_node(value);
+  if(!fresh)
+  {
+    return;
+  }
 
-size_t remove_from_tail(struct linked_list *list) { return 0; }
+  fresh -> next = list -> head;
+  list -> head = node;
+}
 
-void free_list(struct linked_list list) {}
+void insert_at_tail(struct linked_list *list, size_t value) 
+{
+  struct list_node *fresh = new_node(value);
+  if(!fresh)
+  {
+    return;
+  }
+
+  if(!list -> head)
+  {
+    list -> head = fresh;
+  }
+  else
+  {
+    struct list_node *walker = list -> head;
+    while(walker -> next)
+    {
+      walker = walker -> next;
+    }
+
+    walker -> next = fresh;
+  }
+        
+}
+
+size_t remove_from_head(struct linked_list *list) 
+{ 
+  if(!list -> head)
+  {
+    return(0);
+  }
+  struct list_node *fresh = list -> head;
+  size_t value = fresh -> value;
+  list -> head = fresh -> next;
+  free(fresh);
+
+  return(value);
+}
+
+size_t remove_from_tail(struct linked_list *list) 
+{ 
+  if(!list -> head)
+  {
+    return(0);
+  }
+
+  struct list_mode *walker = list ->head;
+  if(!walker -> next)
+  {
+    size_t value = walker -> value;
+    free(walker);
+    list -> head = NULL;
+    return(value);
+  }
+
+  while(walker -> next -> next)
+  {
+    walker = walker -> next;
+  }
+
+  free(walker -> next);
+  walker -> next = NULL;
+
+  return(value);
+}
+
+void free_list(struct linked_list list) 
+{
+  struct list_node *walker = list.head;
+  while(walker)
+  {
+    struct list_node *next = walker -> next;
+    free(walker);
+    walker = next;
+  }
+  
+}
 
 // Utility function to help you debugging, do not modify
 void dump_list(FILE *fp, struct linked_list list) {
