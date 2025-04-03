@@ -87,7 +87,7 @@ size_t remove_from_tail(struct linked_list *list)
     walker = walker->next;
   }
 
-  value = walker->next->value;
+  size_t value = walker->next->value;
   free(walker->next);
   walker->next = NULL;
 
