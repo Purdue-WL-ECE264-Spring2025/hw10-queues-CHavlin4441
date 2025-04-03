@@ -24,7 +24,7 @@ void insert_at_head(struct linked_list *list, size_t value)
   }
 
   fresh->next = list->head;
-  list->head = node;
+  list->head = fresh;
 }
 
 void insert_at_tail(struct linked_list *list, size_t value) 
