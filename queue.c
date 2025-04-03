@@ -14,6 +14,6 @@ struct game_state dequeue(struct queue *q)
   return(deserialize(encoded)); 
 }
 
-int number_of_moves(struct game_state start) 
-{ 
-}
+//int number_of_moves(struct game_state start) 
+//{ 
+//}
