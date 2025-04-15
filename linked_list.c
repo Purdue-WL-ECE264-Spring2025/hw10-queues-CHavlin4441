@@ -60,7 +60,7 @@ size_t remove_from_head(struct linked_list *list)
   }
   struct list_node *fresh = list->head;
   size_t value = fresh->value;
-  list->head = fresh->next;
+  list->head = fresh->next; 
   free(fresh);
 
   return(value);
